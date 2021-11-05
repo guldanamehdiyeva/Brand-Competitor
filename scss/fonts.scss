@@ -1,0 +1,109 @@
+.ff-hoves {
+  font-family: "Helvetica Now Display", sans-serif;
+  
+}
+
+/* Font weights */
+@for $i from 1 through 9 {
+  .fw-#{$i * 100} {
+    font-weight: #{$i * 100};
+  }
+}
+
+/* Line heights */
+$line-heights: 6, 10, 16, 18, 20, 21, 22, 24, 28, 31, 32, 35, 37, 40, 48, 56;
+@each $lh in $line-heights {
+  .lh-#{$lh} {
+    line-height: #{$lh}px;
+  }
+}
+
+/* Font sizes */
+$font-sizes: 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 32, 36, 40, 48, 52;
+@each $size in $font-sizes {
+  .fs-#{$size} {
+    font-size: #{$size}px;
+  }
+}
+
+
+
+@media (min-width: map-get($break-points-config, md)) {
+  /*Font sizes=========================================================*/
+  $font-sizes:15,16, 18, 20,26,40;
+  @each $size in $font-sizes {
+    .fs-md-#{$size} { font-size: #{$size}px }
+  }
+  /*Line heights=========================================================*/
+  $line-heights: 24, 28, 52;
+  @each $lh in $line-heights {
+    .lh-md-#{$lh} { line-height: #{$lh}px }
+  }
+}
+
+
+
+
+
+@media (min-width: map-get($break-points-config, lg)) {
+  $font-sizes: 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 24, 25, 26, 28, 32, 36, 38, 40, 41, 42, 46, 48, 52, 64, 72;
+  @each $size in $font-sizes {
+    .fs-lg-#{$size} {
+      font-size: #{$size}px !important;
+    }
+  }
+
+  $line-heights: 16, 18, 20, 24, 28, 32, 36, 37, 40, 44, 48, 52, 55, 56,60, 64, 72;
+  @each $lh in $line-heights {
+    .lh-lg-#{$lh} {
+      line-height: #{$lh}px !important;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .fw-lg-#{$i * 100} {
+      font-weight: #{$i * 100} !important;
+    }
+  }
+}
+
+
+
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/subset-HelveticaNowDisplay-ExtraBold.woff2') format('woff2'),
+    url('../fonts/subset-HelveticaNowDisplay-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/subset-HelveticaNowDisplay-Bold.woff2') format('woff2'),
+    url('../fonts/subset-HelveticaNowDisplay-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/subset-HelveticaNowDisplay-Medium.woff2') format('woff2'),
+    url('../fonts/subset-HelveticaNowDisplay-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/subset-HelveticaNowDisplay-RegIta.woff2') format('woff2'),
+    url('../fonts/subset-HelveticaNowDisplay-RegIta.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

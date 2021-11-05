@@ -1,0 +1,160 @@
+/**
+ * Team: CodeBit
+ * Team Lead: Murad Mustafayev
+ * Date: 08.03.2021
+ **/
+:root {
+  // bg
+  --navbar: #007332;
+  --search_bar: #00863B;
+  --line: #f9f9f9;
+  --footer: #F6F7FA;
+  --footer_line: #dadada;
+  --home_btn: #FFDC32;
+  --home_frame: #EEF9FF;
+  --card_discount: #8E10F0;
+  --products_filter: #F4F5F5;
+  --range_slider: #F5F5F5;
+  --download: #CA200C;
+  --app_step: #F3F3F3;
+  --about_line: #d6d8dc;
+  --account: #F3F3F5;
+  --linkedin: #2277B2;
+  --whatsapp: #40C351;
+  --career_card: #4C91F9;
+  --add_education: #ED2939;
+  --level_card: #E2E2E2;
+  // color
+  --header_link: #444750;
+  --home_frame_text: #1F93FF;
+  --product_amount: #858998;
+  --product_discount: #050505;
+  --register_link: #2675D2;
+  --login_code: #2063E5;
+  --category: #06803B;
+}
+
+// https://chir.ag/projects/name-that-color - color names
+
+$all-colors: (
+  bg-colors: (
+    green: var(--navbar),
+    light-green: var(--search_bar),
+    alabaster: var(--line),
+    whisper: var(--footer),
+    alto: var(--footer_line),
+    yellow: var(--home_btn),
+    solitude: var(--home_frame),
+    violet: var(--card_discount),
+    dodger-blue: var(--home_frame_text),
+    black-haze: var(--products_filter),
+    wild-sand: var(--range_slider),
+    gray: var(--product_amount),
+    red: var(--download),
+    concrete: var(--app_step),
+    iron: var(--about_line),
+    athens-gray: var(--account),
+    matisse: var(--linkedin),
+    chateau-green: var(--whatsapp),
+    royal-blue: var(--login_code),
+    cornflower-blue: var(--career_card),
+    alizarin-red: var(--add_education),
+    mercury: var(--level_card)
+  ),
+  text-colors: (
+    mako: var(--header_link),
+    green: var(--navbar),
+    light-green: var(--search_bar),
+    salem: var(--category),
+    dodger-blue: var(--home_frame_text),
+    yellow: var(--home_btn),
+    gray: var(--product_amount),
+    red: var(--product_discount),
+    mariner: var(--register_link),
+    royal-blue: var(--login_code),
+  ),
+);
+
+/* Background colors */
+@include make-colors(map-get($all-colors, bg-colors), bg);
+
+/* Text colors */
+@include make-colors(map-get($all-colors, text-colors));
+
+/* Icons */
+$icons: az, uk, ru, facebook, youtube, twitter, linkedin, instagram, tiktok, whatsapp, telegram, search, nearest-oba, products, special-offers, contact, account, close, play-store, app-store, ji-studio, brand, media, hr, rent, arrow, sorting, arrow-down, phone, email, location, time-limit, time-delivery, user, lock, hide, show, register, food, clock, tableware, pdf, right-arrow, mission, void, king, android, drag, out, history, heart, oba, time-card, card, play, line-chart, users, chair, mouse, delete, delete-white, plus, minus, document, upload, add-camera, edit, check, check-gray, briefcase, home, cursor, loader;
+
+@each $icon in $icons {
+  .icon-#{$icon} {
+    background-image: url("../img/icons/" + $icon + ".svg");
+  }
+}
+
+/* Shapes */
+$rectangles: (
+  xs: (
+    21: 45,
+    22: 12,
+    26: 30,
+    36: 52,
+    46: 24,
+    78: 40,
+    96: 64,
+  ),
+);
+@include make-shape($rectangles);
+
+$squares: (
+  xs: (
+    4: 4,
+    8: 8,
+    14: 14,
+    16: 16,
+    18: 18,
+    20: 20,
+    24: 24,
+    26: 26,
+    28: 28,
+    30: 30,
+    32: 32,
+    40: 40,
+    48: 48,
+    52: 52,
+    56: 56,
+    60: 60,
+    64: 64,
+    72: 72,
+    80: 80,
+    88: 88,
+    160: 160,
+    260: 260,
+    507: 507,
+    668: 668
+  ),
+);
+@include make-shape($squares, square);
+
+/* Height */
+$heights: 8, 16, 24, 26, 40, 42, 48, 50, 52, 56, 60, 64, 80, 110, 120, 130, 140, 148, 160, 172, 180, 200, 220, 240, 243, 260, 280, 290, 300, 340, 350, 430, 500, 510, 560, 600, 700;
+@each $height in $heights {
+  .h-#{$height} {
+    height: #{$height}px !important;
+  }
+}
+
+/* Borders */
+$border-colors: #e8e8e8, #d6d8dc, #00863b, #007332, #eaeaea, #dbdbdb, #dadada, #e0e0e0, #ededed, #efeff0, #f3f3f3, #f3f3f5, #858998, #d8dae1;
+@each $brd-color in $border-colors {
+  $brd-color: str-replace(to-string($brd-color), "#", "");
+  .border-#{$brd-color} {
+    border-color: #{"#"}#{$brd-color} !important;
+  }
+}
+
+/* Border radius */
+$radius: 2, 3, 4, 6, 8, 12, 16, 20, 30, 40, 60, 100;
+@each $rad in $radius {
+  .radius-#{$rad} {
+    border-radius: #{$rad}px;
+  }
+}

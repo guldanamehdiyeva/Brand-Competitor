@@ -1,0 +1,70 @@
+// Make color and background color
+@mixin make-colors($colors-arr, $property: color) {
+  @each $name, $color in $colors-arr {
+    $name: str-replace(to-string($name), "#", "");
+
+    @if ($color == null) {
+      $color: str-replace(to-string($name), "#", "");
+    } @else {
+      $color: str-replace(to-string($color), "#", "");
+    }
+
+    $property-css: color;
+    @if ($property == bg) {
+      $property-css: background-color;
+    }
+
+    .#{$property}-#{$name} {
+      #{$property-css}: #{$color} !important;
+    }
+  }
+}
+
+// Make square and rectangle
+@mixin make-shape($shape-arr, $shape: rect) {
+  @each $break-point, $size-arr in $shape-arr {
+    @each $width, $height in $size-arr {
+      $name: #{$width}-#{$height};
+      @if ($shape == square) {
+        $name: #{$width};
+      }
+
+      @if ($break-point != xs) {
+        $name: #{$break-point}-#{$name};
+      }
+      $name: #{$shape}-#{$name};
+
+      .#{$name} {
+        width: #{$width}px;
+        height: #{$height}px;
+      }
+    }
+  }
+}
+
+// Make placeholder color
+@mixin make-placeholder-color($class, $color) {
+  .#{$class} {
+    &::-webkit-input-placeholder {
+      color: $color; /* Chrome/Opera/Safari */
+    }
+    &::-moz-placeholder {
+      color: $color; /* Firefox 19+ */
+    }
+    &:-ms-input-placeholder {
+      color: $color; /* IE 10+ */
+    }
+    &:-moz-placeholder {
+      color: $color; /* Firefox 18- */
+    }
+  }
+}
+
+// Make CSS classes
+@mixin make-css($css-arr) {
+  // .h-lg-100 { height: 100 }
+  // .text-lg-center { text-align: center }
+  //@each $break-point in $css-arr {
+  //
+  //}
+}

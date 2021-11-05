@@ -1,0 +1,168 @@
+/* Smaller than medium (for mobile) */
+@media (max-width: map-get($break-points-config, md)) {
+    body {
+        &.menu-active {
+            header:first-of-type { position: fixed }
+            &.cabinets header:first-of-type { transition: none; top: 0 }
+        }
+
+        &.cabinets header:first-of-type { top: 0 }
+
+        header:first-of-type {
+            position: sticky;
+            top: -74px;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .menu-mobile {
+            height: calc(100% - 67px);
+            top: 67px;
+        }
+    }
+
+}
+
+@media (min-width: map-get($break-points-config, md)) {
+     /* Special styles */
+     $heights: 286, 385;
+     @each $height in $heights {
+         .h-md-#{$height} {
+             height: #{$height}px !important;
+         }
+     }
+}
+
+/* Large */
+@media (min-width: map-get($break-points-config, lg)) {
+     
+    .d-lg-inline-flex {
+        &-x-center {
+        display: inline-flex !important;
+        justify-content: center;
+        }
+        &-y-center {
+        display: inline-flex !important;
+        align-items: center;
+        }
+        &-xy {
+        @extend .d-lg-inline-flex-x-center;
+        @extend .d-lg-inline-flex-y-center;
+        }
+    }
+
+    .d-lg-none{display: none!important;}
+
+
+    .color-lg-mako { color: var(--header_link) !important; }
+    .color-lg-gray { color: var(--product_amount) !important; }
+
+    .bg-lg-alabaster { background-color: var(--line) !important; }
+
+    .w-lg-400 { width: 400px !important; }
+    .w-lg-340 { width: 340px !important; }
+    .w-lg-n3 { width: calc(100% - 1rem); }
+
+    .min-w-lg-252 { min-width: 252px; }
+
+    .mt-lg-104 { margin-top: 104px !important; }
+    .mt-lg-112 { margin-top: 112px !important; }
+    .mt-lg-148 { margin-top: 148px !important; }
+    .mt-lg-210 { margin-top: 210px !important; }
+    
+    .pl-lg-110 { padding-left: 110px !important; }
+    .pt-lg-132 { padding-top: 132px !important; }
+    .pl-lg-30 { padding-left: 30%; }
+    .mx-lg-n2 {
+        margin-left: -0.5rem !important;
+        margin-right: -0.5rem !important;
+    }
+    .mx-lg-n3 {
+        margin-left: -1rem !important;
+        margin-right: -1rem !important;
+    }
+
+    .radius-top-right-lg-8 { border-top-right-radius: 8px !important }
+    .border-lg-48 { border-width: 48px !important; }
+    .full-height-lg { height: calc(100vh - 155px) }
+    .min-height-lg { min-height: calc(100vh - 155px) }
+    .min-height-account-lg { min-height: calc(100vh - 155px - 130px) }
+    .full-height-cabinet-lg { height: calc(100vh - 155px + 64px) }
+    .min-height-cabinet-lg { min-height: calc(100vh - 155px + 64px) }
+
+    /* Special styles */
+    $heights: 56, 110, 128, 130, 154, 160, 180, 196, 210, 220, 260, 270, 286, 300, 310, 320, 324, 390, 400, 430, 450, 500, 520, 540, 570, 620, 710, 770;
+    @each $height in $heights {
+        .h-lg-#{$height} {
+            height: #{$height}px !important;
+        }
+    }
+
+    .full-lg-height{height: calc(100vh - 73px + -119px);}
+
+    /* Border radius */
+    $radius: 3, 6, 8, 16, 30, 40;
+    @each $rad in $radius {
+        .radius-lg-#{$rad} {
+            border-radius: #{$rad}px !important;
+        }
+    }
+    
+    $rectangles: (
+        lg: (
+            50: 40,
+            60: 86,
+            64: 56,
+            162: 52,
+            245: 64,
+            730: 52,
+            794: 560
+        )
+    );
+    @include make-shape($rectangles);
+
+    $squares: (
+        lg: (
+            16: 16,
+            24: 24,
+            32: 32,
+            40: 40,
+            48: 48,
+            64: 64,
+            80: 80,
+            96: 96,
+            128: 128,
+            148: 148,
+            244: 244,
+            252: 252,
+            308: 308
+        )
+    );
+    @include make-shape($squares, square);
+}
+
+/* Smaller than large */
+@media (max-width: map-get($break-points-config, lg)) {
+    .swiper-mobile-75p { width: 75% !important; }
+    .swiper-mobile-80p { width: 80% !important; }
+    .swiper-mobile-90p { width: 90% !important; }
+
+    .product-cards div:nth-child(2n) a { border-left: none !important; }
+    .product-cards div:not(:nth-last-child(-n+2)) a { border-bottom: none !important; }
+}
+
+@media (min-width: map-get($break-points-config, xl)) {
+    .h-xl-520 { height: 520px; }
+}
+
+@media (min-width: 1600px) {
+    .container-xxl {
+        width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: map-get($break-points-config, md)) and (orientation:landscape) {
+    .pos-static-landscape { position: static !important; }
+}

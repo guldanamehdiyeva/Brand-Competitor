@@ -1,0 +1,163 @@
+/* iOS fixes (Safari 10.1+) */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    /* iOS map close button issue */
+    .ios input,
+    .ios textarea {
+      -webkit-appearance: none;
+    }
+
+    /* safari horizontal scroll fix */
+    html.ios {
+      overflow-x: hidden !important;
+    }
+  }
+}
+
+/* Special for iPhone 5/SE */
+@media (max-width: map-get($break-points-config, xs)) {
+  .d-xs-flex { display: flex }
+  .justify-content-xs-center { justify-content: center !important }
+  .text-xs-center { text-align: center !important }
+  .ml-xs-0 { margin-left: 0 !important }
+  .ml-xs-1 { margin-left: 4px !important }
+  .mt-xs-2 { margin-top: 8px !important }
+  .mb-xs-3 { margin-bottom: 16px !important }
+  .pt-xs-4 { padding-top: 24px !important }
+
+  .col-xs-12 {
+    -ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .col-xs-6 {
+    -ms-flex: 0 0 45% !important;
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+  }
+}
+
+/* Small */
+@media (min-width: map-get($break-points-config, sm)) {
+  .text-sm-left { text-align: left }
+  .text-sm-center { text-align: center }
+  .bg-sm-auto { background-size: auto !important; }
+}
+
+/* Medium */
+@media (min-width: map-get($break-points-config, md)) {
+  .w-md-70 { width: 70% !important }
+}
+
+/* Large */
+@media (min-width: map-get($break-points-config, lg)) {
+  .text-lg-left { text-align: left }
+  .text-lg-center { text-align: center }
+  .text-lg-right { text-align: right }
+
+  .opacity-lg-0 { opacity: 0 }
+  .bg-lg-white { background-color: white }
+  .bg-lg-transparent { background-color: transparent !important }
+
+  .pos-lg-static { position: static !important }
+  .pos-lg-absolute { position: absolute }
+  .pos-lg-fixed { position: fixed }
+
+  .pos-lg-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .w-lg-25 { width: 25% !important; }
+  .w-lg-30 { width: 30% !important; }
+  .w-lg-35 { width: 35% !important; }
+  .w-lg-40 { width: 40% !important; }
+  .w-lg-45 { width: 45% !important; }
+  .w-lg-50 { width: 50% !important; }
+  .w-lg-55 { width: 55% !important; }
+  .w-lg-60 { width: 60% !important; }
+  .w-lg-65 { width: 65% !important; }
+  .w-lg-70 { width: 70% !important }
+  .w-lg-80 { width: 80% !important }
+  .w-lg-90 { width: 90% !important }
+  .w-lg-100 { width: 100% !important }
+  .width-lg-auto { width: unset !important; }
+  .w-lg-auto {
+    -ms-flex: auto;
+    flex: auto;
+    max-width: max-content;
+  }
+  .h-lg-80p { height: 80% !important }
+  .h-lg-90p { height: 90% !important }
+  .h-lg-100p { height: 100% !important }
+  .h-lg-100-vh { height: 100vh !important }
+  .h-lg-auto { height: auto !important }
+  .max-h-lg-none { max-height: none !important }
+  .min-h-lg-100vh { min-height: 100vh }
+
+  .overflow-lg-v { overflow: visible }
+  .overflow-lg-h { overflow: hidden }
+  .overflowx-lg-h { overflow-x: hidden }
+  .radius-lg-0 { border-radius: 0 !important }
+  .bg-size-lg-0 { background-size: 0 }
+  .border-lg-0 { border: none !important }
+  .ws-lg-nowrap { white-space: nowrap; }
+  .border-lg-right { border-right: 1px solid $color-black; }
+  .border-lg-top { border-top: 1px solid $color-black; }
+  .border-lg-bottom { border-bottom: 1px solid $color-black; }
+  .cursor-lg-d { cursor: default !important; }
+  .w-lg-max { width: max-content !important; }
+  .left-lg-auto { left: auto !important; }
+  .right-lg-0 { right: 0 !important; }
+
+  .bg-lg-auto { background-size: auto !important; }
+
+  .radius-bottom-lg-none {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .d-lg-flex {
+    &-x-center {
+      display: flex !important;
+      justify-content: center;
+    }
+
+    &-y-center {
+      display: flex !important;
+      align-items: center;
+    }
+
+    &-xy {
+      @extend .d-lg-flex-x-center;
+      @extend .d-lg-flex-y-center;
+    }
+
+    &-x-between {
+      display: flex !important;
+      justify-content: space-between;
+    }
+
+    &-x-end {
+      display: flex !important;
+      justify-content: flex-end;
+    }
+  }
+  .w-lg-fit { 
+    width: fit-content;
+    width: -moz-fit-content;
+  }
+}
+
+/* Extra Large */
+@media (min-width: map-get($break-points-config, xl)) {
+  .text-xl-left {
+    text-align: left !important;
+  }
+
+  .overflow-xl-v {
+    overflow: visible;
+  }
+}

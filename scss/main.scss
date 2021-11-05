@@ -1,0 +1,211 @@
+/*All colors========================================================*/
+:root {
+    // bg
+    --text-bg:#F8F8F8;
+    --btn-bg:#FDB635;
+    --information-txt:rgb(255, 0, 0);
+    --category-bg:#131315;
+    --ctgry-bg:#f3f3f3;
+    --addbtn-bg:#854EDE;
+    --bg:#fbfbfb;
+    
+   
+    
+    // color
+    --logo: #131315;
+    --mini-text: #929292;
+    --tesco-text: #0651A6;
+    --footer-text:#6C6C75;
+    --category-txt:#f3f3f3;
+    
+    
+  }
+  
+  // https://chir.ag/projects/name-that-color - color names
+  
+  $all-colors: (
+    bg-colors: (
+      alabaster: var( --text-bg),
+      alabaster2: var(--bg),
+      yellow:var(--btn-bg),
+      woodsmoke:var(--category-bg),
+      concrete:var(--ctgry-bg),
+      mediumpurple:var(--addbtn-bg)
+     
+        
+    ),
+    
+    text-colors: (
+      woodsmoke: var(--logo),
+      gray:var(--mini-text),
+      endeavour:var(--tesco-text),
+      midgray:var(--footer-text),
+      redd:var(--information-txt),
+      concrete:var(--category-txt)
+     
+     
+    )
+  );
+  
+  /* Background colors=============================================================== */
+  @include make-colors(map-get($all-colors, bg-colors), bg);
+  
+
+ 
+
+
+  /* Text colors=============================================================== */
+  @include make-colors(map-get($all-colors, text-colors));
+
+
+  /*Filter Colors*/
+  .filter-gray{filter: invert(49%) sepia(5%) saturate(560%) hue-rotate(202deg) brightness(83%) contrast(85%);}
+
+
+  /*Squares===============================================================*/
+  $squares: (
+    xs: (17:17, 20:20, 24:24, 40:40, )
+  );
+
+  @include make-shape($squares, square);
+
+
+  /*Rectangles====================================*/
+  $rectangles: (
+  xs: (70:40,354: 40, 113:106,)
+  
+  );
+
+  @include make-shape($rectangles);
+
+
+
+/*Heights===============================================================*/
+$heights:52,156,206,224;
+@each $height in $heights {
+  .h-#{$height} { height: #{$height}px }
+}
+.full-height{height: calc(100vh - 73px + -190px);}
+
+
+/*Widths===============================================================*/
+$widths:6,160;
+@each $width in $widths {
+  .w-#{$width} { width: #{$width}px };
+ 
+}
+
+
+/* Borders ===============================================================*/
+$border-colors: #DFE2E9, #E9EBEF,#131315;
+@each $brd-color in $border-colors {
+  $brd-color: str-replace(to-string($brd-color), '#', '');
+  .border-#{$brd-color} { border-color: #{'#'}#{$brd-color}!important }
+}
+
+.border-top-right-E4E6E9{border-color: transparent #E4E6E9 #E4E6E9 transparent;}
+
+/* Border radius=============================================================== */
+$radius:8;
+@each $rad in $radius {
+  .radius-#{$rad} { border-radius: #{$rad}px }  
+}
+
+
+
+
+/* Icons=============================================================== */
+$icons: search, arrow-down;
+@each $icon in $icons {
+  .icon-#{$icon} { background-image: url("../img/icons/"+ $icon +".svg") }
+}
+
+
+
+
+/*Images===============================================================*/
+$images:  advertising-bg,  ;
+@each $image in $images {
+  .img-#{$image} { background-image: url("../img/"+ $image +".svg") }
+}
+
+
+
+
+/*Input styles=============================================*/
+
+
+.input::placeholder{
+  color: #B9B9B9!important;
+ 
+ 
+}
+
+input::-webkit-input-placeholder{
+
+  opacity: 0.5;
+  font-size: 14px;
+  line-height: 20px;
+  transition: all .4s ease;
+  @extend .fw-400;
+}
+
+:focus::-webkit-input-placeholder{opacity: 1;}
+
+
+/*Others===========================================================*/
+.left-pos{
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top-pos{
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+.overflow-hidden{overflow: hidden;}
+
+
+/*Hamburger Menu*/
+.link-white {
+  a, a * { color: $color-white !important; }
+
+  .hamburger .hamburger-inner { background-color: $color-white; }
+
+  #js-menu-mobile {
+    a, a * { color: $color-black !important; }
+
+    .hamburger .hamburger-inner { background-color: $color-black }
+  }
+}
+
+/*Checkbox======================================*/
+.checkmark{
+  transition: all .6s ease;
+}
+
+.checkmark::after {
+  content: '';
+  position: absolute;
+  width: 11px;
+  height: 8px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  border-radius: 1px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(-50deg);
+  opacity: 0;
+  transition: all .6s ease;
+}
+ 
+#check:checked ~ .checkmark {
+   background-color: #0072FF;
+}
+
+#check:checked ~ .checkmark::after {
+  opacity: 1;
+}

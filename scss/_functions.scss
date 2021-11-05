@@ -1,0 +1,42 @@
+@function is-number($value) {
+  @return type-of($value) == "number";
+}
+
+@function is-percentage($value) {
+  @return is-number($value) and unit($value) == "%";
+}
+
+@function is-absolute-length($value) {
+  @return is-number($value) and
+    index("cm" "mm" "in" "px" "pt" "pc", unit($value)) != null;
+}
+
+@function to-string($value) {
+  @return inspect($value);
+}
+
+@function get-color($color-arr, $color-find) {
+  @each $index, $colors in $color-arr {
+    @each $i, $color in $colors {
+      @if ($i == $color-find or $color == $color-find) {
+        @return #{"#"}#{$color-find};
+      }
+    }
+  }
+  @return null;
+}
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}

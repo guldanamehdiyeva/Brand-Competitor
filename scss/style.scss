@@ -1,0 +1,22 @@
+$color-white: #fff;
+$color-black: #000;
+
+$break-points-config: (xs: 360px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1440px,
+);
+
+@import "_functions";
+@import "_mixins";
+@import "fonts";
+
+
+@import "core";
+@import "project-core";
+@import "project-main";
+@import "main";
+@import "core-responsive";
+@import "project-responsive";
+@import "plugins-project";
